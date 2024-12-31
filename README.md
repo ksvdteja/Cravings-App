@@ -18,3 +18,19 @@
 - Error Handling
 - HTTPS
 - Tree shaking - remove unused code
+
+/* 
+  ->App
+    ->Header
+      ->Logo
+      ->Nav Items
+    ->Body
+      ->Search Bar
+      ->Restaurants Container
+        ->Restaurant Cards
+    ->Footer
+      ->CopyRight
+      ->Links
+      ->Address
+      ->Contact
+*/
