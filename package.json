@@ -21,7 +21,8 @@
   "homepage": "https://github.com/ksvdteja/Learning-React#readme",
   "dependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.1"
   },
   "devDependencies": {
     "parcel": "^2.13.3",
