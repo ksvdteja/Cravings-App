@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import UserContext from "../utils/UserContext.js";
 
 const Header = () => {
 
   const [btnName, setBtnName] = useState("Sign In");
 
   const onlineStatus = useOnlineStatus();
+
+  const {loggedInUser} = useContext(UserContext);
 
   //if no dependency array is passed, useEffect will be called on every render
   //if an empty array is passed, useEffect will be called only once
@@ -44,6 +47,7 @@ const Header = () => {
             >
               {btnName}
             </button>
+            <li className="px-4 font-bold">{loggedInUser}</li>
           </ul>
         </div>
       </div>
