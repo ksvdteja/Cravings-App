@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import UserContext from "../utils/UserContext.js";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -14,9 +15,12 @@ const Header = () => {
   //if no dependency array is passed, useEffect will be called on every render
   //if an empty array is passed, useEffect will be called only once
   //if a variable is passed, useEffect will be called whenever that variable changes
-  useEffect(() => {
-    console.log("useEffect called");
-  }, [btnName]);
+  // useEffect(() => {
+  //   console.log("useEffect called");
+  // }, [btnName]);
+
+  //subscribing to the store using selector
+  const cartItems = useSelector((store) => store.cart.items);
 
     return (
       <div className="flex justify-between bg-pink-100 shadow-lg mb-2">
@@ -40,7 +44,10 @@ const Header = () => {
             <li className="px-4">
               <Link to="/grocery">Grocery</Link>
             </li>
-            <li className="px-4">Cart</li>
+            <li className="px-4 font-bold">
+              <Link to="/cart">Cart - ( {cartItems.length} Items )</Link>
+               
+            </li>
             <button className="login" onClick={() => {
               btnName === "Sign In" ? setBtnName("Sign Out") : setBtnName("Sign In");
               }}
